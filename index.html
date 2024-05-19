@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sudha Shah</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+     /* Audio Player Styling */
+.audio-player {
+    text-align: center;
+    background-color: #fff;
+    padding: 20px; /* Adjusted padding for spacing */
+    border-radius: 10px; /* Apply border radius for rounded corners */
+    animation: fade-in 1s ease-in-out;
+    display: flex; /* Use flexbox for layout */
+    align-items: center; /* Center items vertically */
+    justify-content: center; /* Center items horizontally */
+    margin: 20px auto; /* Add margin for spacing */
+    max-width: 900px; /* Set a maximum width */
+    height: 300px; /* Set the desired height */
+    background-color: #f0f0f0; /* Set background color */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add subtle shadow */
+}
+
+@keyframes fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.hidden {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease, visibility 0s linear 0.5s;
+    visibility: hidden; /* Hide the element initially */
+}
+
+.visible {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.5s ease, transform 0.5s ease, visibility 0s;
+    visibility: visible; /* Ensure the element is visible when revealed */
+}
+
+/* Cover Image Styling */
+.cover-image {
+    width: 300px; /* Set width of the cover image */
+    height: 300px; /* Set height of the cover image */
+    border-radius: 50%; /* Make the image circular */
+    margin-right: 20px; /* Add margin for spacing between image and audio controls */
+}
+
+/* Audio Controls Styling */
+
+/* Customizing the audio controls panel (specific to WebKit browsers) */
+audio::-webkit-media-controls-panel {
+    background-color: #eaeaea; /* Set background color of the controls panel */
+    border-radius: 7px; /* Apply border radius to controls panel */
+    padding: 10px; /* Add padding to controls panel */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add shadow to controls panel */
+    height:40%;
+}
+
+/* Customizing the play and pause buttons (specific to WebKit browsers) */
+audio::-webkit-media-controls-play-button,
+audio::-webkit-media-controls-pause-button {
+    background-color: #007bff; /* Set background color of play and pause buttons */
+    border-radius: 50%; /* Make the buttons circular */
+    padding: 15px; /* Add padding to buttons for larger size */
+    width: 60px; /* Set width for larger buttons */
+    height: 40px; /* Set height for larger buttons */
+    /* Optional: Change the button color when hovered */
+    transition: background-color 0.3s;
+}
+
+audio::-webkit-media-controls-play-button:hover,
+audio::-webkit-media-controls-pause-button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+/* Customizing the volume slider (specific to WebKit browsers) */
+audio::-webkit-media-controls-volume-slider {
+    height: 30px; /* Increase the height of the volume slider */
+    margin: 0 15px; /* Add margin for spacing */
+    width: 300px; /* Increase the width of the volume slider */
+}
+
+/* Customizing the seek back and seek forward buttons (specific to WebKit browsers) */
+audio::-webkit-media-controls-seek-back-button,
+audio::-webkit-media-controls-seek-forward-button {
+    background-color: #007bff; /* Set background color of seek buttons */
+    border-radius: 50%; /* Make the buttons circular */
+    padding: 45px; /* Add padding to buttons for larger size */
+    width: 60px; /* Set width for larger buttons */
+    height: 60px; /* Set height for larger buttons */
+}
+
+/* Customizing the current time and duration display (specific to WebKit browsers) */
+audio::-webkit-media-controls-current-time-display,
+audio::-webkit-media-controls-time-remaining-display {
+    font-size: 20px; /* Increase font size for better readability */
+}
+
+
+        /* Top Navigation Bar Styling */
+        .Tnav {
+            background-color: #4eb8c4;
+            padding: 35px;
+            color: #b7a8b7;
+            overflow: hidden;
+            z-index: 1000;
+            position: fixed;
+            width: 90%;
+            height:7%;
+            top: 0;
+            animation: slide-down 1s ease-in-out;
+        }
+
+        @keyframes slide-down {
+            from { top: -50px; }
+            to { top: 0; }
+        }
+
+        /* Navigation Hover Effect */
+        .nav:hover {
+            background-color: olive;
+        }
+
+        /* Anchor Navigation Styling */
+        .anav {
+            color: #090750;
+            background-color: gold;
+            float: right;
+            font-family: cursive;
+            border-radius: 5px;
+            margin-right: 30px;
+            text-align: right;
+            font-size:45px;
+                        padding: 40px;
+            animation: fade-in 1s ease-in-out;
+        }
+
+        /* Logo Image Animation */
+        .logo img {
+            opacity: 0;
+            transition: opacity 3s ease-in-out;
+        }
+
+        .logo img.loaded {
+            opacity: 1;
+        }
+
+        /* Horizontal Rule Animation */
+        hr {
+            width: 14px;
+            border: none;
+            border-top: 12px solid Gold;
+            position: relative;
+            animation: expand 3s forwards;
+        }
+
+        @keyframes expand {
+            0% { width: 0; left: 50%; }
+            50% { width: 100%; left: 0; }
+            100% { width: 100%; left: 0; }
+        }
+
+        /* Header Animation */
+        .h1 {
+            color: white;
+           font-size:120px;
+             text-align: center;
+            font-family: cursive;
+            position: relative;
+            animation: slide-in 1.5s forwards;
+        }
+
+        @keyframes slide-in {
+            from { left: -100%; opacity: 0; }
+            to { left: 0; opacity: 1; }
+        }
+
+        /* About Section Styling */
+        .abt {
+            font-size: 60px;
+            text-align: center;
+            animation: fade-in 1s ease-in-out;
+        }
+
+        /* Last Section Styling */
+        .last {
+            text-align: center;
+            background-color: black;
+            color: white;
+        }
+
+        /* Paragraph Styling */
+        .p {
+            font-size: 16px;
+            color: grey;
+            animation: fade-in 1s ease-in-out;
+        }
+
+        /* Page Section Styling */
+        .Page {
+            background-color: #4eb8c4;
+            border-radius: 10px;
+            color: white;
+            animation: emerge 1.5s ease-in-out;
+        }
+
+        .page:hover {
+            background-color: #4eb8c4;
+            color: white;
+        }
+
+        /* Button Styling */
+        .btn {
+            background-color: DodgerBlue;
+            border: none;
+            color: white;
+            padding: 32px 60px;
+            cursor: pointer;
+            font-size: 40px;
+            text-align: center;
+            display: block;
+            margin: 0 auto;
+            border-radius: 13px;
+            text-decoration: none;
+            animation: fade-in 1s ease-in-out;
+        }
+
+        .btn:hover {
+            background-color: RoyalBlue;
+        }
+
+        /* Quotes Section Styling */
+        .quotes {
+            background-color: #4eb8c4;
+            font-size: 40px;
+            color: white;
+            text-align: center;
+            font-family: "Poppins-semibold", sans-serif;
+            animation: fade-in 1s ease-in-out;
+            padding: 20px; /* Add padding for better spacing */
+        }
+
+        /* Subscription Section Styling */
+        .Sub {
+            background-color: white;
+            border-radius: 10px;
+           
+            background-image: url("bg.jpg");
+            animation: emerge 1.5s ease-in-out;
+        }
+
+        /* Horizontal Rule Animation for "hrr" */
+        .hrr {
+            width: 6px;
+            height:50px;
+                        border: none;
+            border-top: 12px solid Gold;
+            position: relative;
+            animation: expand 20s forwards;
+                  }
+
+        /* Header Section Styling */
+        .Head {
+            background-color: maroon;
+            color: white;
+            font-size:80px;            font-family: cursive;
+            text-align: center;
+            padding:4px 45px;            animation: slide-in 5s forwards;
+        }
+
+        /* Button Styling */
+        .button {
+            background-color: DodgerBlue;
+            color: white;
+            margin: 0 auto;
+            border: none;
+            border-radius: 1px;
+            display: block;
+            animation: fade-in 1s ease-in-out;
+        }
+
+        .button:hover {
+            background-color: black;
+        }
+
+        /* Box Styling */
+        .bk {
+            font-size: 20px;
+            border-radius: 10px;
+            text-align: center;
+            background-color: #4eb8c4;
+            animation: emerge 1.5s ease-in-out;
+        }
+
+        /* Triangle Section Styling */
+        .tri {
+            animation: fade-in 1s ease-in-out;
+        }
+
+        .custom-button {
+    /* Your custom button styles here */
+    background-color: #4eb8c4;
+    color: gold;
+    border: 2px solid gold;
+    font-size: 33px; /* Adjust the font size as needed */
+    padding: 35px 45px; /* Adjust padding for size */
+    text-decoration: underline; /* Remove underline */
+    border-radius: 20px;
+    margin-top: 20px; 
+    
+   /* Adjust the margin value to create space above */
+   margin-bottom:20px;
+}
+.bag{
+    background-color:#4eb8c4;}
+    .subag{
+        background-color:maroon;
+        color:white;
+        font-size:40px;       
+        text-align:center;
+                 font-family:cursive;    }
+
+    </style>
+    <script>
+        window.addEventListener('scroll', reveal);
+
+        function reveal() {
+            var elements = document.querySelectorAll('.hidden');
+            for (var i = 0; i < elements.length; i++) {
+                var windowHeight = window.innerHeight;
+                var revealTop = elements[i].getBoundingClientRect().top;
+                var revealPoint = 50;
+
+                if (revealTop < windowHeight - revealPoint) {
+                    elements[i].classList.remove('hidden'); // Remove the hidden class
+                    elements[i].classList.add('visible');
+                }
+            }
+        }
+
+        window.addEventListener('load', function() {
+            document.querySelector('.logo img').classList.add('loaded');
+        });
+    </script>
+</head>
+<body>
+    <nav class="Tnav">
+        <a href="2nd.html" class="anav">Author</a>
+    </nav><br><br><br><br><br><br>
+    <div class="logo">
+        <img src="logo.jpg" width="1000" height="700">
+    </div>
+    <hr>
+    <div class="Page hidden">
+        <div class="Page">
+            <h1 class="h1">Books</h1>
+            <a href="https://drive.google.com/file/d/1HXtFnaJK4LDF8WgUokqhi0chJcekwpJI/view?usp=drivesdk">
+                <img src="book5.png" width="950" height="650" style="border: solid; color: maroon;">
+            </a>
+            <div class="abt">
+                <p>પુરુષ પ્રધાન સમાજ મા નારીનું સ્થાન</p>
+            </div>
+            <br>
+            <div class="pi" style="padding: 10px;font-size:40px;">
+                પુરુષ પ્રધાન સમાજ મા નારીનું સ્થાન is a beautiful book written by Sudha Shah. She discusses the position of women in a male-dominated society, highlighting issues such as early marriage and motherhood, and the need for female empowerment. The piece reflects on cultural attitudes towards women, urging a shift towards respect and equality, and celebrating women’s achievements and potential.
+            </div>
+            <br>
+            <a href="https://drive.google.com/file/d/1HXtFnaJK4LDF8WgUokqhi0chJcekwpJI/view?usp=drivesdk" class="btn">
+                <i class="fa fa-download"></i> Download
+            </a>
+        </div>
+    </div>
+    <br>
+    <div class="Page hidden">
+        <div class="bk">
+            <br>
+            <a href="https://drive.google.com/drive/folders/16t-embvxP40uCoGOdipkzPNEQEEgulKM">
+                <img src="book2.png" width="600" height="500" style="border: solid; color: maroon;">
+            </a>
+            <p class="text" style="color: white;font-size:60px;">જ્ઞાનનો ઉજાસ આત્માનો આનંદ</p>
+        </div>
+        <a href="https://drive.google.com/file/d/1HXtFnaJK4LDF8WgUokqhi0chJcekwpJI/view?usp=drivesdk" class="btn">
+            <i class="fa fa-download"></i> Download
+        </a>
+    </div>
+    <br><br>
+    <hr class="hrr">
+    <h1 class="Head">Quotes</h1>
+    <div class="tri">
+        <div class="Page hidden">
+            <div class="Sub">
+                <div class="quotes">
+                    <p>Muskurahat •ᴗ•</p>
+                </div>
+                <p style="color: black; font-weight: bold;font-size:50px;">
+                    जरा सी बात पर परेशान हो जाना, निराश हो जाना, रोना , उत्तेजित हो जाना, क्रोधांध स्थिति में आकर न कहने योग्य बात को कह जाना और न करने योग्य कार्य को कर जाना, यह सब मनुष्य की आंतरिक कमजोरी है। उत्तेजना और क्रोध में कहा गया शब्द और किया गया कर्म स्थिति को और बिगाड़ देता है। इसलिए मौन और मुस्कुराहट को अपना आभूषण बनाएं। संसार का चक्र ऐसे ही चलता रहेगा, मुस्कुराकर हर क्षण को स्वीकार करो।
+                </p>
+            </div><br>
+            <div class="button-container">
+                <a href="https://drive.google.com/drive/folders/1-0ZiLx6Yd1FrsLxl3d8QqbziJPkLUU25">
+                    <input type="button" value="Read More" class="button custom-button">
+                </a>
+            </div>
+        </div>
+    </div><br>
+    <hr class="hrr">
+    <br>
+    <div class="bag">
+        <div class="subag">
+            <h1>Audio book</h1></div>
+    <div class="audio-player">
+        <img src="ab.png" alt="Audio Cover" class="cover-image">
+        <audio controls>
+            <source src="08.m4a" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+    </div>
+    <br>
+    <div class="button-container">
+        <a href="https://drive.google.com/drive/folders/12WXo8S0pRCgyyvqYx77LReGYTBHOTO_r">
+            <input type="button" value="Listen more" class="button custom-button">
+        </a>
+    </div></div>
+    <div class="last">
+        <p style="text-align: center;">Disclaimer | Terms & Conditions | Copyright ©️</p>
+    </div>
+</body>
+</html>
