@@ -6,14 +6,159 @@
     <link rel="stylesheet" href="styles.css">
     <style>
         
-
-.Dev {
-    Background-color: grey;
-    color: black;
-    padding: 2px;
-    text-align: center;
+```css
+/* General Styling */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
 }
 
+/* Top Navigation Bar Styling */
+.Tnav {
+    background-color: #333;
+    padding: 20px;
+    color: #fff;
+    overflow: hidden;
+    z-index: 1000;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    animation: slide-down 1s ease-in-out;
+}
+
+@keyframes slide-down {
+    from { top: -50px; }
+    to { top: 0; }
+}
+
+/* Navigation Hover Effect */
+.anav:hover {
+    background-color: #555;
+}
+
+/* Anchor Navigation Styling */
+.anav {
+    color: #fff;
+    float: right;
+    font-family: 'Poppins', sans-serif;
+    margin-right: 20px;
+    font-size: 18px;
+    padding: 10px 15px;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+/* Logo Image Styling */
+.logo img {
+    display: block;
+    margin: 100px auto 20px;
+    max-width: 100%;
+    height: auto;
+    opacity: 0;
+    transition: opacity 3s ease-in-out;
+}
+
+.logo img.loaded {
+    opacity: 1;
+}
+
+/* Horizontal Rule Styling */
+hr {
+    width: 80%;
+    border: none;
+    border-top: 2px solid #ddd;
+    margin: 20px auto;
+    animation: expand 3s forwards;
+}
+
+@keyframes expand {
+    0% { width: 0; left: 50%; }
+    50% { width: 100%; left: 0; }
+    100% { width: 100%; left: 0; }
+}
+
+/* Header Styling */
+.h1 {
+    color: #333;
+    font-size: 48px;
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+    margin-top: 20px;
+    animation: slide-in 1.5s forwards;
+}
+
+@keyframes slide-in {
+    from { left: -100%; opacity: 0; }
+    to { left: 0; opacity: 1; }
+}
+
+/* About Section Styling */
+.abt {
+    font-size: 24px;
+    text-align: center;
+    margin: 20px;
+    animation: fade-in 1s ease-in-out;
+}
+
+/* Page Section Styling */
+.Page {
+    background-color: #fff;
+    border-radius: 10px;
+    color: #333;
+    margin: 20px auto;
+    padding: 20px;
+    max-width: 900px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    animation: emerge 1.5s ease-in-out;
+}
+
+.page:hover {
+    background-color: #e0e0e0;
+    color: #333;
+}
+
+/* Button Styling */
+.btn {
+    background-color: #007bff;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    text-align: center;
+    display: block;
+    margin: 20px auto;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.btn:hover {
+    background-color: #0056b3;
+}
+
+/* Quotes Section Styling */
+.quotes {
+    background-color: #4eb8c4;
+    font-size: 24px;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    font-family: 'Poppins', sans-serif;
+    animation: fade-in 1s ease-in-out;
+}
+
+/* Subscription Section Styling */
+.Sub {
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    animation: emerge 1.5s ease-in-out;
+}
+
+/* Audio Player Styling */
 .audio-player {
     text-align: center;
     background-color: #fff;
@@ -25,14 +170,40 @@
     justify-content: center;
     margin: 20px auto;
     max-width: 900px;
-    height: 300px;
-    background-color: #f0f0f0;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
+.cover-image {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    margin-right: 20px;
+}
+
+/* Footer Styling */
+.last {
+    text-align: center;
+    background-color: #333;
+    color: white;
+    padding: 20px;
+}
+
+.Dev {
+    background-color: grey;
+    color: black;
+    padding: 10px;
+    text-align: center;
+}
+
+/* Keyframes */
 @keyframes fade-in {
     from { opacity: 0; }
     to { opacity: 1; }
+}
+
+@keyframes emerge {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
 }
 
 .hidden {
@@ -49,232 +220,26 @@
     visibility: visible;
 }
 
-.cover-image {
-    width: 300px;
-    height: 300px;
-    border-radius: 50%;
-    margin-right: 20px;
-}
-
-audio::-webkit-media-controls-panel {
-    background-color: #eaeaea;
-    border-radius: 7px;
-    padding: 10px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    height: 40%;
-}
-
-audio::-webkit-media-controls-play-button,
-audio::-webkit-media-controls-pause-button {
-    background-color: #007bff;
-    border-radius: 50%;
-    padding: 15px;
-    width: 60px;
-    height: 40px;
-    transition: background-color 0.3s;
-}
-
-audio::-webkit-media-controls-play-button:hover,
-audio::-webkit-media-controls-pause-button:hover {
-    background-color: #0056b3;
-}
-
-audio::-webkit-media-controls-volume-slider {
-    height: 30px;
-    margin: 0 15px;
-    width: 300px;
-}
-
-audio::-webkit-media-controls-seek-back-button,
-audio::-webkit-media-controls-seek-forward-button {
-    background-color: #007bff;
-    border-radius: 50%;
-    padding: 45px;
-    width: 60px;
-    height: 60px;
-}
-
-audio::-webkit-media-controls-current-time-display,
-audio::-webkit-media-controls-time-remaining-display {
-    font-size: 20px;
-}
-
-.Tnav {
+/* Custom Button Styling */
+.custom-button {
     background-color: #4eb8c4;
-    padding: 35px;
-    color: #b7a8b7;
-    overflow: hidden;
-    z-index: 1000;
-    position: fixed;
-    width: 90%;
-    height: 7%;
-    top: 0;
-    animation: slide-down 1s ease-in-out;
-}
-
-@keyframes slide-down {
-    from { top: -50px; }
-    to { top: 0; }
-}
-
-.nav:hover {
-    background-color: olive;
-}
-
-.anav {
-    color: #090750;
-    background-color: gold;
-    float: right;
-    font-family: cursive;
-    border-radius: 5px;
-    margin-right: 30px;
-    text-align: right;
-    font-size: 45px;
-    padding: 40px;
-    animation: fade-in 1s ease-in-out;
-}
-
-.logo img {
-    opacity: 0;
-    transition: opacity 3s ease-in-out;
-}
-
-.logo img.loaded {
-    opacity: 1;
-}
-
-hr {
-    width: 14px;
-    border: none;
-    border-top: 12px solid Gold;
-    position: relative;
-    animation: expand 3s forwards;
-}
-
-@keyframes expand {
-    0% { width: 0; left: 50%; }
-    50% { width: 100%; left: 0; }
-    100% { width: 100%; left: 0; }
-}
-
-.h1 {
-    color: white;
-    font-size: 120px;
-    text-align: center;
-    font-family: cursive;
-    position: relative;
-    animation: slide-in 1.5s forwards;
-}
-
-@keyframes slide-in {
-    from { left: -100%; opacity: 0; }
-    to { left: 0; opacity: 1; }
-}
-
-.abt {
-    font-size: 60px;
-    text-align: center;
-    animation: fade-in 1s ease-in-out;
-    padding: 20px;
-}
-
-.last {
-    text-align: center;
-    background-color: black;
-    color: white;
-}
-
-.p {
-    font-size: 16px;
-    color: grey;
-    animation: fade-in 1s ease-in-out;
-}
-
-.Page {
-    background-color: #4eb8c4;
-    border-radius: 10px;
-    color: white;
-    animation: emerge 1.5s ease-in-out;
-}
-
-.page:hover {
-    background-color: #4eb8c4;
-    color: white;
-}
-
-.btn {
-    background-color: DodgerBlue;
-    border: none;
-    color: white;
-    padding: 32px 60px;
-    cursor: pointer;
-    font-size: 40px;
-    text-align: center;
-    display: block;
-    margin: 0 auto;
-    border-radius: 13px;
+    color: gold;
+    border: 2px solid gold;
+    font-size: 18px;
+    padding: 10px 20px;
     text-decoration: none;
-    animation: fade-in 1s ease-in-out;
-}
-
-.btn:hover {
-    background-color: RoyalBlue;
-}
-
-.quotes {
-    background-color: #4eb8c4;
-    font-size: 40px;
-    color: white;
-    text-align: center;
-    font-family: "Poppins-semibold", sans-serif;
-    animation: fade-in 1s ease-in-out;
-    padding: 20px;
-}
-
-.Sub {
-    background-color: white;
     border-radius: 10px;
-    background-image: url("bg.jpg");
-    animation: emerge 1.5s ease-in-out;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    transition: background-color 0.3s, color 0.3s;
 }
 
-.hrr {
-    width: 6px;
-    height: 50px;
-    border: none;
-    border-top: 12px solid Gold;
-    position: relative;
-    animation: expand 20s forwards;
+.custom-button:hover {
+    background-color: gold;
+    color: #4eb8c4;
 }
-
-.Head {
-    background-color: maroon;
-    color: white;
-    font-size: 80px;
-    font-family: cursive;
-    text-align: center;
-    padding: 4px 45px;
-    animation: slide-in 5s forwards;
-}
-
-.button {
-    background-color: DodgerBlue;
-    color: white;
-    margin: 0 auto;
-    border: none;
-    border-radius: 1px;
-    display: block;
-    animation: fade-in 1s ease-in-out;
-}
-
-.button:hover {
-    background-color: black;
-}
-
-.bk {
-    font-size: 20px;
-    border-radius: 10px;
-    text-align
+```
+    
 
     </style>
     <script>
